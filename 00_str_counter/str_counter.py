@@ -62,3 +62,4 @@ for x in range(len(times)):
 log_file_object.close()
 out_file_object.close()
 
+print "DONE"
