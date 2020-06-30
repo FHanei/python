@@ -21,7 +21,8 @@ else:
 	print "Please input log file with full path"
 	quit()
 
-if not os.path.exists(log_file):
+#if not os.path.exists(log_file):
+if not os.path.isfile(log_file):
 	print "log file not exist"
 	quit()
 
