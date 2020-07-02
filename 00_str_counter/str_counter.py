@@ -21,7 +21,6 @@ else:
 	print "Please input log file with full path"
 	quit()
 
-#if not os.path.exists(log_file):
 if not os.path.isfile(log_file):
 	print "log file not exist"
 	quit()
@@ -56,7 +55,7 @@ while 1:
 	times[counter] = times[counter] + 1
 	#print counter
 
-for x in range(len(times)):
+for x in range(1, len(times), 1):
 	print times[x]
 	out_file_object.write('%ith read sum times: %i\n' % (x, times[x]))
 
