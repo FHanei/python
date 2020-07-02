@@ -18,20 +18,20 @@ target_string = "dimensions H"
 if len(sys.argv) == 2:
 	log_file = sys.argv[1]
 else:
-	print "Please input log file with full path"
+	print("Please input log file with full path")
 	quit()
 
 if not os.path.isfile(log_file):
-	print "log file not exist"
+	print("log file not exist")
 	quit()
 
 log_file_object = open(log_file, 'r')
 if not log_file_object:
-	print "can't open log file"
+	print("can't open log file")
 
 out_file_object = open('./outfile.log', 'w');
 if not log_file_object:
-	print "can't open out file"
+	print("can't open out file")
 
 times = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
@@ -56,10 +56,10 @@ while 1:
 	#print counter
 
 for x in range(1, len(times), 1):
-	print times[x]
+	print(times[x])
 	out_file_object.write('%ith read sum times: %i\n' % (x, times[x]))
 
 log_file_object.close()
 out_file_object.close()
 
-print "DONE"
+print("DONE")
