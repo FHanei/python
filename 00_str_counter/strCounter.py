@@ -14,10 +14,9 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 #You can modify below two string
-#This is start string for one cycle
-startStr = "abl-APL"
-#This is target string
-targetStr = "dimensions H"
+startStr = "abl-APL"         #This is start string for one cycle
+targetStr = "dimensions H"   #This is target string
+maxRange = 11                #count range max, start from 0
 
 if len(sys.argv) == 2:
 	logFile = sys.argv[1]
@@ -39,7 +38,7 @@ if not outFileObj:
 	logging.error("can't open out file")
 	quit()
 
-times = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+times = [0 for i in range(maxRange)]
 
 def find_str(targetStr):
 	ret = 0
@@ -93,7 +92,8 @@ while 1:
 		break
 
 
-for x in range(1, len(times), 1):
+#for x in range(1, len(times), 1):
+for x in range(len(times)):
 	logging.info("%dth read success occurs times: %d", x, times[x])
 	outFileObj.write('%ith read sum times: %i\n' % (x, times[x]))
 
