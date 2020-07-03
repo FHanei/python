@@ -63,15 +63,18 @@ def count_str(targetStr):
 
 	#count it
 	ret = 1
+	lineNum = logFileObj.tell()
 	oneLineLog = logFileObj.readline();
 	while oneLineLog:
 		if oneLineLog.count(targetStr):
 			ret = ret + 1
+			lineNum = logFileObj.tell()
 			oneLineLog = logFileObj.readline();
 		elif oneLineLog.count(startStr):
-			logFileObj.seek(-1, os.SEEK_CUR);
+			logFileObj.seek(lineNum);
 			break
 		else:
+			lineNum = logFileObj.tell()
 			oneLineLog = logFileObj.readline();
 			continue
 	
