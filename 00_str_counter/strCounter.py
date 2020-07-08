@@ -28,7 +28,7 @@ if not os.path.isfile(logFile):
 	logging.error("log file not exist")
 	quit()
 
-logFileObj = open(logFile, 'r')
+logFileObj = open(logFile, 'r', encoding='utf-8')
 if not logFileObj:
 	logging.error("can't open log file")
 	quit()
@@ -49,7 +49,6 @@ def find_str(targetStr):
 			break
 		else:
 			oneLineLog = logFileObj.readline();
-			continue
 	
 	logging.debug(oneLineLog)
 
@@ -76,7 +75,6 @@ def count_str(targetStr):
 		else:
 			lineNum = logFileObj.tell()
 			oneLineLog = logFileObj.readline();
-			continue
 	
 	return ret
 
